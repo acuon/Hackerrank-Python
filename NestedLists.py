@@ -14,27 +14,30 @@ l = len(output)
 stu = []
 s_min=[]
 
-
+#sorting the nested list using lambda function w.r.t. to the 2nd element of the inner list(at index 1)
 #for i in range(0,l-1):
 #    for j in range(0,l-i-1):
 #        if(output[j][1]>output[j+1][1]):
 #            temp = output[j]
 #            output[j] = output[j+1]
 #            output[j+1] = temp
+#print(output)
 output.sort(key = lambda x:x[1])
 #print(output)
 
-
+#finding the lowest or minimum in sorted output list
 min_output = min(output,key = lambda x:x[1])
 #print(min_output,"i am here")
 #print(min_output[1])
 
+#creating a new list excluding the minimum value
 for i in range(0,l):
-    if (min_output[1] != output[i][1]):
+    if (min_output[1] != output[i][1]):#if lowest value is not equal to the current list element then it will append it to stu list
         stu.append(output[i])
-
 #print(stu)
+#stu list now have second lowest as its first element if it is sorted
 
+#if there's any identical values of element at index 0 (second lowest value) then it will append it to s_min list
 for i in range(0,len(stu)):
     if(stu[i][1] == stu[0][1]):
         s_min.append(stu[i][0])
